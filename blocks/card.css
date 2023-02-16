@@ -1,28 +1,15 @@
-.gallery {
-  margin-top: 30px;
-  padding-bottom: 67px;
-}
 .card {
   font-family: "Inter", Arial, sans-serif;
   border-radius: 10px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-}
-.gallery__cards {
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fit, 282px);
-  grid-gap: 20px 17px;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+  border-radius: 10px;
 }
 
 .card__image {
   width: 282px;
   height: 282px;
-  border-radius: 0px, 0px, 0px, 5px;
 }
 
 .card__description {
@@ -32,7 +19,6 @@
   padding: 25px;
   align-items: center;
   justify-content: space-between;
-  border-radius: 0px, 0px, 0px, 5px;
 }
 .card__title {
   max-width: 187px;
@@ -52,5 +38,5 @@
   cursor: pointer;
 }
 .card__like-button:hover {
-  opacity: 0.6;
+  opacity: 0.5;
 }

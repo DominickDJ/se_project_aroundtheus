@@ -1,10 +1,16 @@
 .header {
   max-width: 880px;
-  max-height: 742px;
+  min-height: 33px;
+  border-bottom: 1px solid #545454;
+  padding-bottom: 42px;
 }
-
 @media screen and (min-width: 320px) and (max-width: 768px) {
   .header {
     max-width: calc(100% - 40px);
+    padding-bottom: 32px;
+  }
+  .header__avatar {
+    height: 24px;
+    width: 126px;
   }
 }
