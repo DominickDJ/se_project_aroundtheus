@@ -8,6 +8,8 @@
   .header {
     max-width: calc(100% - 40px);
     padding-bottom: 32px;
+    width: 100%;
+    padding-left: 27px;
   }
   .header__avatar {
     height: 24px;
