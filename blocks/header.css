@@ -10,11 +10,11 @@
   .header {
     padding-bottom: 32px;
     width: 100%;
-    padding-left: 27px;
-    max-width: 768px;
+    margin: 0;
   }
   .header__avatar {
     height: 24px;
     width: 126px;
+    padding-left: 27px;
   }
 }
