@@ -87,12 +87,11 @@
   .profile__info {
     grid-template-areas:
       "title button"
-      "description";
+      "description description";
     grid-template-columns: minmax(auto, 228px) auto;
     column-gap: 16px;
     row-gap: 10px;
     margin: 0;
-    display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
@@ -110,6 +109,7 @@
     line-height: 16.94px;
     padding-bottom: 36px;
     padding-left: 0;
+    max-width: 282px;
   }
 
   .profile__edit-button {
