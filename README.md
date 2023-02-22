@@ -1,8 +1,11 @@
 **Project Name**
 "Around The U.S" (se_project_aroundtheus)
 
+**Recent updates**
+Array rendered in index.js
+
 **Description**
-Around the U.S landing page with layouts for mobile (320px) and desktop (1280px) views. Intervals between 320px-768px and 768px-1280px.
+Around the U.S landing page with responsive layouts for mobile (320px) and desktop (1280px) views. Intervals between 320px-768px and 768px-1280px.
 
 **Technologies used**
 grid-template-areas command applied to profile and card blocks.
@@ -11,7 +14,7 @@ Hover states applied for add and edit buttons as well as card like buttons.
 Card array created in index.js.
 
 **Pictures**
-
+![alt text](../se_project_aroundtheus/images/screenshot.png)
 **Links**
 https://dominickdj.github.io/se_project_aroundtheus/
 
