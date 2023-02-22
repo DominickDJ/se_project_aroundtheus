@@ -14,7 +14,8 @@ Hover states applied for add and edit buttons as well as card like buttons.
 Card array created in index.js.
 
 **Pictures**
-![alt text](../se_project_aroundtheus/images/screenshot.png)
+![alt text](./images/screenshot.png)
+
 **Links**
 https://dominickdj.github.io/se_project_aroundtheus/
 
