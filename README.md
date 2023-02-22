@@ -8,6 +8,9 @@ Around the U.S landing page with layouts for mobile (320px) and desktop (1280px)
 grid-template-areas command applied to profile and card blocks.
 Hover states applied for add and edit buttons as well as card like buttons.
 @fontface declarations included for "Inter" font styles.
+Card array created in index.js.
+
+**Pictures**
 
 **Links**
 https://dominickdj.github.io/se_project_aroundtheus/
