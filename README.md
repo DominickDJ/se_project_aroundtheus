@@ -26,12 +26,12 @@ Around the U.S landing page with responsive layouts for mobile (320px) and deskt
 
 **Links**
 
-- [Project link on Github](https://dominickdj.github.io/se_project_aroundtheus/)
+- [Link to Gitpages](https://github.com/DominickDJ/se_project_aroundtheus.git)
+
+- [View finished Project](https://dominickdj.github.io/se_project_aroundtheus/)
 
 - [Link to the project design on Figma](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1)
 
 **Deployment**
 
 For best results, view in Chrome or Firefox.
-
-**Plans for improvement**
