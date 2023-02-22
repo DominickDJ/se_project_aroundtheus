@@ -1,4 +1,4 @@
-**Project Name**
+# Project Name
 
 "Around The U.S" (se_project_aroundtheus)
 
@@ -26,7 +26,7 @@ Around the U.S landing page with responsive layouts for mobile (320px) and deskt
 
 **Links**
 
-- [Link to Gitpages](https://github.com/DominickDJ/se_project_aroundtheus.git)
+- [Link to Github](https://github.com/DominickDJ/se_project_aroundtheus.git)
 
 - [View finished Project](https://dominickdj.github.io/se_project_aroundtheus/)
 
