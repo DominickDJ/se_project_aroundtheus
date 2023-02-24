@@ -1,0 +1,120 @@
+.modal {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+.close__button {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: -45px;
+  right: -45px;
+}
+.modal__container {
+  max-width: 430px;
+  max-height: 330px;
+  background: white;
+  padding: 34px 36px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.modal__title {
+  font-family: "Inter", "Arial", sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 30px;
+  color: black;
+  margin: 0;
+  padding-bottom: 54px;
+}
+
+.modal__form {
+  box-sizing: border-box;
+  margin: 0 auto;
+  background: white;
+}
+
+.form__fieldset {
+  box-sizing: border-box;
+  border: none;
+  padding: 0px;
+  margin: 0;
+}
+
+.form__input {
+  font-family: "Inter", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  width: 100%;
+  color: black;
+  padding-right: 36px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+.form__input::placeholder {
+  color: #838383;
+  font-size: 20px;
+  line-height: 30px;
+}
+.form__button {
+  font-family: "Inter", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21.78px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  border: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 2px;
+}
+.form__button:hover {
+  opacity: 70%;
+  transition: 1s ease-in-out;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .modal__container {
+    max-width: 282px;
+    max-height: 322px;
+  }
+  .close__button {
+    width: 26px;
+    height: 26px;
+    right: 5px;
+  }
+  .modal__title {
+    max-width: 238px;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .form__input {
+    width: 238px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+  .form__input::placeholder {
+    font-size: 14px;
+    line-height: 17px;
+  }
+  .form__button {
+    width: 238px;
+    height: 46px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

@@ -1,4 +1,6 @@
-# Project Name
+# Around The U.S.
+
+**Project name**
 
 "Around The U.S" (se_project_aroundtheus)
 
