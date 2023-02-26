@@ -18,6 +18,7 @@
   position: absolute;
   top: -45px;
   right: -45px;
+  cursor: pointer;
 }
 .modal__container {
   max-width: 430px;
