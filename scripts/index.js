@@ -28,9 +28,29 @@ const modal = document.querySelector(".modal");
 const modalContainer = modal.querySelector(".modal__container");
 const editButton = document.querySelector(".profile__edit-button");
 const closeButton = modalContainer.querySelector(".close__button");
+const profileTitle = document.querySelector(".profile__title");
+const profiledescription = document.querySelector(".profile__description");
+const saveProfileButton = document.querySelector(
+  "#edit-profile-modal .form__button"
+);
+
 editButton.addEventListener("click", function () {
+  const nameInput = modal.querySelector("#name-input");
+  nameInput.value = profileTitle.textContent;
+  const descriptionInput = modal.querySelector("#description-input");
+  descriptionInput.value = profiledescription.textContent;
   modal.classList.add("modal__opened");
 });
 closeButton.addEventListener("click", function () {
+  modal.classList.remove("modal__opened");
+});
+console.log(saveProfileButton);
+saveProfileButton.addEventListener("click", (event) => {
+  const descriptionInput = modal.querySelector("#description-input");
+  event.preventDefault();
+  profiledescription.textContent = descriptionInput.value;
+  const nameInput = modal.querySelector("#name-input");
+  event.preventDefault();
+  profileTitle.textContent = nameInput.value;
   modal.classList.remove("modal__opened");
 });
