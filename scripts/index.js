@@ -24,6 +24,20 @@ const initialCards = [
     link: "https://code.s3.yandex.net/web-code/lago.jpg",
   },
 ];
+
+function getCardElement(data) {
+  let cardElement = cards.querySelector(".cards").cloneNode(true);
+  let cardImage = cardElement.querySelector(".card__image");
+  let cardTitle = cardElement.querySelector(".card__title");
+  cardImage.src = data.link;
+  cardTitle.textContent = data.name;
+  cardImage.alt = data.name;
+  return cardElement;
+}
+for (let i = 0; i < getCardElement; i++) {
+  console.log(getCardElement[i]);
+}
+
 const modal = document.querySelector(".modal");
 const modalContainer = modal.querySelector(".modal__container");
 const editButton = document.querySelector(".profile__edit-button");
