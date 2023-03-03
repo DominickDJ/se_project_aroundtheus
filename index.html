@@ -43,76 +43,15 @@
         </section>
         <section class="gallery page__section">
           <ul class="gallery__cards">
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/yosemite.jpg"
-                alt="Yosemite Valley"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Yosimite Valley</h2>
-                <button
-                  class="card__like-button"
-                  aria-label="like button"
-                  type="button"
-                ></button>
+            <template id="cards">
+              <div class="card">
+                <img class="card__image" alt="cards image" src="#" />
+                <div class="card__description">
+                  <h2 class="card__title"></h2>
+                  <button class="card__like-button" type="button"></button>
+                </div>
               </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/lake-louise.jpg"
-                alt="Yosemite Valley"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Lake Louise</h2>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/bald-mountains.jpg"
-                alt="Yosemite Valley"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Bald Mountains</h2>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/latemar.jpg"
-                alt="Yosemite Valley"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Latemar</h2>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/vanoise.jpg"
-                alt="Yosemite Valley"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Vanois National Park</h2>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/lago.jpg"
-                alt="Yosemite Valley"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Lago di Braise</h2>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
+            </template>
           </ul>
         </section>
       </main>
@@ -151,11 +90,6 @@
         />
       </div>
     </section>
-    <template id="cards">
-      <div class="">
-        <img class="" alt="" />
-      </div>
-    </template>
     <script src="./scripts/index.js"></script>
   </body>
 </html>

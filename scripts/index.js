@@ -26,16 +26,14 @@ const initialCards = [
 ];
 
 function getCardElement(data) {
-  let cardElement = cards.querySelector(".cards").cloneNode(true);
+  let cardTemplate = document.querySelector("#cards").content.cloneNode(true);
+  let cardElement = cardTemplate.querySelector(".card");
   let cardImage = cardElement.querySelector(".card__image");
   let cardTitle = cardElement.querySelector(".card__title");
   cardImage.src = data.link;
   cardTitle.textContent = data.name;
   cardImage.alt = data.name;
   return cardElement;
-}
-for (let i = 0; i < getCardElement; i++) {
-  console.log(getCardElement[i]);
 }
 
 const modal = document.querySelector(".modal");
@@ -47,6 +45,7 @@ const profiledescription = document.querySelector(".profile__description");
 const saveProfileButton = document.querySelector(
   "#edit-profile-modal .form__button"
 );
+const cardGallery = document.querySelector(".gallery__cards");
 
 editButton.addEventListener("click", function () {
   const nameInput = modal.querySelector("#name-input");
@@ -68,3 +67,8 @@ saveProfileButton.addEventListener("click", (event) => {
   profileTitle.textContent = nameInput.value;
   modal.classList.remove("modal__opened");
 });
+
+for (let i = 0; i < initialCards.length; i++) {
+  const card = getCardElement(initialCards[i]);
+  cardGallery.append(card);
+}
