@@ -39,33 +39,31 @@ function getCardElement(data) {
 const modal = document.querySelector(".modal");
 const modalContainer = modal.querySelector(".modal__container");
 const editButton = document.querySelector(".profile__edit-button");
-const closeButton = modalContainer.querySelector(".close__button");
+const closeButton = modalContainer.querySelector(".close");
 const profileTitle = document.querySelector(".profile__title");
 const profiledescription = document.querySelector(".profile__description");
 const saveProfileButton = document.querySelector(
   "#edit-profile-modal .form__button"
 );
 const cardGallery = document.querySelector(".gallery__cards");
+const nameInput = modal.querySelector("#name-input");
+const descriptionInput = modal.querySelector("#description-input");
 
 editButton.addEventListener("click", function () {
-  const nameInput = modal.querySelector("#name-input");
   nameInput.value = profileTitle.textContent;
-  const descriptionInput = modal.querySelector("#description-input");
   descriptionInput.value = profiledescription.textContent;
-  modal.classList.add("modal__opened");
+  modal.classList.add("modal__container_opened");
 });
 closeButton.addEventListener("click", function () {
-  modal.classList.remove("modal__opened");
+  modal.classList.remove("modal__container_opened");
 });
-console.log(saveProfileButton);
-saveProfileButton.addEventListener("click", (event) => {
-  const descriptionInput = modal.querySelector("#description-input");
+
+modal.addEventListener("submit", (event) => {
   event.preventDefault();
   profiledescription.textContent = descriptionInput.value;
-  const nameInput = modal.querySelector("#name-input");
   event.preventDefault();
   profileTitle.textContent = nameInput.value;
-  modal.classList.remove("modal__opened");
+  modal.classList.remove("modal__container_opened");
 });
 
 for (let i = 0; i < initialCards.length; i++) {

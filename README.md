@@ -6,7 +6,8 @@
 
 **Recent updates**
 
-Array rendered in index.js
+Edit modal functionality:
+Close button, Save button, form input.
 
 **Description**
 
