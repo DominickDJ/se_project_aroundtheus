@@ -19,10 +19,12 @@
   top: -45px;
   right: -45px;
   cursor: pointer;
-  background-image: url("./images/closeicon.svg");
+  background-image: url("../images/closeicon.svg");
   background-color: transparent;
   background-repeat: no-repeat;
   background-position: center;
+  background-size: 100%;
+  border: none;
 }
 .close:hover {
   opacity: 0.5;

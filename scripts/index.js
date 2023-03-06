@@ -35,6 +35,12 @@ function getCardElement(data) {
   cardImage.alt = data.name;
   return cardElement;
 }
+function modalClosed(modal) {
+  modal.classList.remove("modal__container_opened");
+}
+function modalOpened(modal) {
+  modal.classlist.add("modal_container_opened");
+}
 
 const modal = document.querySelector(".modal");
 const modalContainer = modal.querySelector(".modal__container");
@@ -63,7 +69,7 @@ modal.addEventListener("submit", (event) => {
   profiledescription.textContent = descriptionInput.value;
   event.preventDefault();
   profileTitle.textContent = nameInput.value;
-  modal.classList.remove("modal__container_opened");
+  modalClosed(modal);
 });
 
 for (let i = 0; i < initialCards.length; i++) {
