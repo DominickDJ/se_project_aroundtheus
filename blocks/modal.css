@@ -9,6 +9,9 @@
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
 }
+.modal__container-opened {
+  display: flex;
+}
 .modal__container {
   max-width: 430px;
   background: white;
@@ -67,9 +70,6 @@
   transition: 1s ease-in-out;
 }
 
-.modal__opened {
-  display: flex;
-}
 .modal__close-button {
   width: 40px;
   height: 40px;

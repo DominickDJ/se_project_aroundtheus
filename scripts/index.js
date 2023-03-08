@@ -46,28 +46,25 @@ const cardGallery = document.querySelector(".gallery__cards");
 const nameInput = modal.querySelector("#name-input");
 const descriptionInput = modal.querySelector("#description-input");
 
-function closedModal() {
-  modal.classList.remove("modal__opened");
+function closeModal() {
+  modal.classList.remove("modal__container-opened");
 }
-function openedModal() {
-  console.log(modal);
-  modal.classList.add("modal__opened");
+function openModal() {
+  modal.classList.add("modal__container-opened");
 }
 
 editButton.addEventListener("click", function () {
   nameInput.value = profileTitle.textContent;
   descriptionInput.value = profiledescription.textContent;
-  openedModal();
+  openModal();
 });
-closeButton.addEventListener("click", function () {
-  closedModal();
-});
+closeButton.addEventListener("click", closeModal);
 
 modal.addEventListener("submit", (event) => {
   profiledescription.textContent = descriptionInput.value;
   event.preventDefault();
   profileTitle.textContent = nameInput.value;
-  closedModal(modal);
+  closeModal(modal);
 });
 
 for (let i = 0; i < initialCards.length; i++) {
