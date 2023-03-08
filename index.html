@@ -63,11 +63,11 @@
       <div class="modal__container">
         <h2 class="modal__title">Edit profile</h2>
         <form class="modal__form" id="edit-form">
-          <fieldset class="form">
+          <fieldset class="modal__fieldset">
             <input
               name="name-input"
               id="name-input"
-              class="form__input"
+              class="modal__input"
               required
               type="text"
               placeholder="Name"
@@ -75,21 +75,20 @@
             <input
               name="description-input"
               id="description-input"
-              class="form__input"
+              class="modal__input"
               required
               type="text"
               placeholder="Description"
             />
           </fieldset>
-          <fieldset class="form">
-            <button class="form__button" type="submit">Save</button>
+          <fieldset class="modal__fieldset">
+            <button class="modal__button" type="submit">Save</button>
           </fieldset>
         </form>
         <button
           aria-label="close-button"
-          type="reset"
-          alt="close button"
-          class="close"
+          type="button"
+          class="modal__close-button"
         ></button>
       </div>
     </section>
