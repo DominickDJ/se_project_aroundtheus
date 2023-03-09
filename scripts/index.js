@@ -47,10 +47,10 @@ const nameInput = modal.querySelector("#name-input");
 const descriptionInput = modal.querySelector("#description-input");
 
 function closeModal() {
-  modal.classList.remove("modal__container_opened");
+  modal.classList.remove("modal_opened");
 }
 function openModal() {
-  modal.classList.add("modal__container_opened");
+  modal.classList.add("modal_opened");
 }
 
 editButton.addEventListener("click", function () {
