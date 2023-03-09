@@ -9,7 +9,7 @@
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
 }
-.modal__container-opened {
+.modal__container_opened {
   display: flex;
 }
 .modal__container {
