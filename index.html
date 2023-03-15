@@ -46,6 +46,7 @@
             <template id="cards">
               <div class="card">
                 <img class="card__image" alt="cards image" src="#" />
+                <button class="card__delete-button" type="button"></button>
                 <div class="card__description">
                   <h2 class="card__title"></h2>
                   <button class="card__like-button" type="button"></button>
@@ -59,7 +60,9 @@
         <p class="footer__copyright">&copy; 2023 Around the U.S</p>
       </footer>
     </div>
-    <section class="modal" id="edit-profile-modal">
+
+    <!-- edit modal -->
+    <section class="modal" id="edit-modal">
       <div class="modal__container">
         <h2 class="modal__title">Edit profile</h2>
         <form class="modal__form" id="edit-form">
@@ -85,6 +88,54 @@
             <button class="modal__button" type="submit">Save</button>
           </fieldset>
         </form>
+        <button
+          aria-label="close-button"
+          type="button"
+          class="modal__close-button"
+        ></button>
+      </div>
+    </section>
+
+    <!-- add modal -->
+    <section class="modal" id="add-modal">
+      <div class="modal__container">
+        <h2 class="modal__title">New Place</h2>
+        <form class="modal__form" id="add-form">
+          <fieldset class="modal__fieldset">
+            <input
+              name="title-input"
+              id="title-input"
+              class="modal__input"
+              required
+              type="text"
+              placeholder="Title"
+            />
+            <input
+              name="image-input"
+              id="image-input"
+              class="modal__input"
+              required
+              type="text"
+              placeholder="Image link"
+            />
+          </fieldset>
+          <fieldset class="modal__fieldset">
+            <button class="modal__button" type="submit">Create</button>
+          </fieldset>
+        </form>
+        <button
+          aria-label="close-button"
+          type="button"
+          class="modal__close-button"
+        ></button>
+      </div>
+    </section>
+
+    <!-- Picture Modal -->
+    <section class="modal" id="picture-modal">
+      <div class="modal__container">
+        <input name="picture-input" id="picture-input" class="modal__input" />
+        <p class="modal__picture-description"></p>
         <button
           aria-label="close-button"
           type="button"

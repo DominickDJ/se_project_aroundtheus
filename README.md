@@ -6,8 +6,11 @@
 
 **Recent updates**
 
-Edit modal functionality:
-Close button, Save button, form input.
+Edit modal functionality
+Add modal functionality
+Like-Button functionality
+Delete button active
+Open picture modal designed
 
 **Description**
 
@@ -16,12 +19,6 @@ Around the U.S landing page with responsive layouts for mobile (320px) and deskt
 **Technologies used**
 
 - grid-template-areas command applied to profile and card blocks.
-
-- Hover states applied for add and edit buttons as well as card like buttons.
-
-- @fontface declarations included for "Inter" font styles.
-
-- Card array created in index.js.
 
 **Pictures**
 
