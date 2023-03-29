@@ -7,7 +7,8 @@ const config = {
   errorClass: "modal__error_visible",
 };
 
-function showInputError(formElement, inputElement, options) {
+function showInputError(formElement, inputElement, [inputErrorClass]) {
+  const { inputErrorClass } = options;
   const errorMessageElement = formElement.querySelector(
     "#" + inputElement.id + "-error"
   );
@@ -16,7 +17,8 @@ function showInputError(formElement, inputElement, options) {
   errorMessageElement.classList.add(errorClass);
 }
 
-function hideInputError(formElement, inputElement, options) {
+function hideInputError(formElement, inputElement, [inputErrorClass]) {
+  const { inputErrorClass } = options;
   const errorMessageElement = formElement.querySelector(
     "#" + inputElement.id + "-error"
   );
