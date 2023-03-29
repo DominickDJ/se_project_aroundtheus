@@ -74,7 +74,10 @@
               required
               type="text"
               placeholder="Name"
+              maxlength="40"
+              minlength="2"
             />
+            <span class="modal__error" id="name-input-error"></span>
             <input
               name="description-input"
               id="description-input"
@@ -82,10 +85,19 @@
               required
               type="text"
               placeholder="Description"
+              maxlength="200"
+              minlength="2"
             />
+            <span class="modal__error" id="description-input-error"></span>
           </fieldset>
           <fieldset class="modal__fieldset">
-            <button class="modal__button" type="submit">Save</button>
+            <button
+              class="modal__button modal__button_disabled"
+              type="submit"
+              disabled
+            >
+              Save
+            </button>
           </fieldset>
         </form>
         <button
@@ -109,7 +121,10 @@
               required
               type="text"
               placeholder="Title"
+              maxlength="30"
+              minlength="1"
             />
+            <span class="modal__error" id="title-input-eror"></span>
             <input
               name="image-input"
               id="image-input"
@@ -118,6 +133,7 @@
               type="text"
               placeholder="Image link"
             />
+            <span class="modal__error" id="image-input-eror"></span>
           </fieldset>
           <fieldset class="modal__fieldset">
             <button class="modal__button" type="submit">Create</button>
@@ -144,5 +160,6 @@
       </div>
     </section>
     <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/validation.js" defer></script>
   </body>
 </html>

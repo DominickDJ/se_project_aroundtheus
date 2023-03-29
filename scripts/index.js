@@ -9,7 +9,7 @@ const initialCards = [
     link: "https://images.unsplash.com/photo-1603389865219-669a0768193e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
   },
   {
-    name: "Pleasure Pier",
+    name: "Pleasure Pier TX",
     link: "https://images.unsplash.com/photo-1598805291186-612c3ca482a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cGxlYXN1cmUlMjBwaWVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60",
   },
   {
@@ -55,6 +55,14 @@ const pictureCloseButton = pictureModal.querySelector(".modal__close-button");
 const cardImage = document.querySelector(".card__image");
 
 // Funtions
+pictureCloseButton.addEventListener("click", () => closeModal(pictureModal));
+
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
+}
+function openModal(modal) {
+  modal.classList.add("modal_opened");
+}
 function getCardElement(data) {
   const cardTemplate = document.querySelector("#cards").content.cloneNode(true);
   const cardElement = cardTemplate.querySelector(".card");
@@ -66,14 +74,14 @@ function getCardElement(data) {
     cardElement.remove();
   });
 
-  // Picture Modal
+  // Picture card element
   cardImage.addEventListener("click", (event) => {
     modalPicture.src = data.link;
     modalPictureDescription.textContent = data.name;
     openModal(pictureModal);
   });
 
-  // Like Button
+  // Like card element
   cardLikeButton.addEventListener("click", (event) => {
     cardLikeButton.classList.toggle("card__like_button-clicked");
   });
@@ -82,14 +90,7 @@ function getCardElement(data) {
   cardImage.alt = data.name;
   return cardElement;
 }
-pictureCloseButton.addEventListener("click", () => closeModal(pictureModal));
 
-function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-}
-function openModal(modal) {
-  modal.classList.add("modal_opened");
-}
 // Edit Modal
 editCloseButton.addEventListener("click", () =>
   closeModal(editProfileModalContainer)
