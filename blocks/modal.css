@@ -55,14 +55,13 @@
   margin: 0;
   padding-right: 36px;
   padding-bottom: 13px;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
   box-sizing: border-box;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 .modal__input_type_error {
   border-bottom: 1px solid red;
-  color: red;
   font-family: "Inter", Helvetica, sans-serif;
   font-weight: 400;
   font-size: 12px;
@@ -76,15 +75,12 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 15px;
-  color: #ff0000;
-  position: absolute;
-  top: calc(100% + 5px);
-  left: 0;
   transition: opacity 0.3s;
-  border: 1px solid #ff0000;
+  margin-bottom: 13px;
+  margin-top: 5px;
+  display: inline-block;
 }
 .modal__error_visible {
-  border-top: 1px solid #ff0000;
   color: #ff0000;
   font-family: "Inter", Helvetica, sans-serif;
   font-weight: 400;
