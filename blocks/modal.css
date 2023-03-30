@@ -110,9 +110,9 @@
   cursor: pointer;
 }
 .modal__button_disabled {
-  border-color: rgba(0, 0, 0, 0.2);
+  border-color: rgba(0, 0, 0, 0.15);
   background-color: #e5e5e5;
-  color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.15);
 }
 .modal__button_disabled:hover {
   opacity: 80%;

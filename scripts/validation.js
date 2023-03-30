@@ -6,6 +6,7 @@ const config = {
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
+enableValidation(config);
 
 function showInputError(
   formElement,
@@ -78,5 +79,7 @@ function enableValidation(options) {
     setEventListeners(formElement, options);
   });
 }
-
-enableValidation(config);
+//Close Picture Modal
+const closeOverlay = document.querySelector("#picture-modal");
+closeOverlay.addEventListener("click", () => closeModal(pictureModal));
+document.addEventListener("keydown", () => closeModal(pictureModal));
