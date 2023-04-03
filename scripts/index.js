@@ -61,17 +61,25 @@ pictureCloseButton.addEventListener("click", () => closeModal(pictureModal));
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", closeModalByEscape);
+  modal.removeEventListener("mousedown", closeModalOnRemoteClick);
 }
+
 function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", closeModalByEscape);
+  modal.addEventListener("mousedown", closeModalOnRemoteClick);
 }
 
-//Close Modal by Escape
+//Close Modal by Escape/Click
 function closeModalByEscape(evt) {
   if (evt.key === "Escape") {
     const openedModal = document.querySelector(".modal_opened");
     closeModal(openedModal);
+  }
+}
+function closeModalOnRemoteClick(evt) {
+  if (evt.target === evt.currentTarget) {
+    closeModal(evt.target);
   }
 }
 
