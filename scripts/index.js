@@ -75,21 +75,6 @@ function closeModalByEscape(evt) {
   }
 }
 
-// function closeModalOnRemoteClick(evt) {
-//   // target is the element on which the event happened
-//   // currentTarget is the modal
-//   // if they are the same then we should close the modal
-//   if (evt.target === evt.currentTarget) {
-//     closeModal(evt.target);
-//   }
-// }
-
-// // when open a modal
-// modal.addEventListener("mousedown", closeModalOnRemoteClick);
-
-// // when close a modal
-// modal.removeEventListener("mousedown", closeModalOnRemoteClick);
-
 function getCardElement(data) {
   const cardTemplate = document.querySelector("#cards").content.cloneNode(true);
   const cardElement = cardTemplate.querySelector(".card");
@@ -104,7 +89,7 @@ function getCardElement(data) {
   // Picture card element
   cardImage.addEventListener("click", (event) => {
     modalPicture.src = data.link;
-    modalPicture.alt = "Photo of ${data.name}";
+    modalPicture.alt = `Photo of ${data.name}`;
     modalPictureDescription.textContent = data.name;
     openModal(pictureModal);
   });
