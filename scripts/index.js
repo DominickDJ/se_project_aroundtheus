@@ -41,6 +41,7 @@ const editCloseButton = editProfileModalContainer.querySelector(
   ".modal__close-button"
 );
 const addProfileModal = document.querySelector("#add-modal");
+const addSubmitButton = addProfileModal.querySelector(".modal__button");
 const addButton = document.querySelector(".profile__add-button");
 const addCloseButton = addProfileModal.querySelector(".modal__close-button");
 const addForm = addProfileModal.querySelector("#add-form");
@@ -59,10 +60,36 @@ pictureCloseButton.addEventListener("click", () => closeModal(pictureModal));
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", closeModalByEscape);
 }
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", closeModalByEscape);
 }
+
+//Close Modal by Escape
+function closeModalByEscape(evt) {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_opened");
+    closeModal(openedModal);
+  }
+}
+
+// function closeModalOnRemoteClick(evt) {
+//   // target is the element on which the event happened
+//   // currentTarget is the modal
+//   // if they are the same then we should close the modal
+//   if (evt.target === evt.currentTarget) {
+//     closeModal(evt.target);
+//   }
+// }
+
+// // when open a modal
+// modal.addEventListener("mousedown", closeModalOnRemoteClick);
+
+// // when close a modal
+// modal.removeEventListener("mousedown", closeModalOnRemoteClick);
+
 function getCardElement(data) {
   const cardTemplate = document.querySelector("#cards").content.cloneNode(true);
   const cardElement = cardTemplate.querySelector(".card");
@@ -77,6 +104,7 @@ function getCardElement(data) {
   // Picture card element
   cardImage.addEventListener("click", (event) => {
     modalPicture.src = data.link;
+    modalPicture.alt = "Photo of ${data.name}";
     modalPictureDescription.textContent = data.name;
     openModal(pictureModal);
   });
@@ -113,14 +141,16 @@ addButton.addEventListener("click", function () {
   openModal(addProfileModal);
 });
 addProfileModal.addEventListener("submit", (event) => {
+  event.preventDefault();
   const cardData = {
     name: titleInput.value,
     link: imageInput.value,
   };
-  event.preventDefault();
+
   cardGallery.prepend(getCardElement(cardData));
   closeModal(addProfileModal);
   addForm.reset();
+  toggleButtonState([titleInput, imageInput], addSubmitButton, config);
 });
 
 // Array Data

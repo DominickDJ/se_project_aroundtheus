@@ -63,6 +63,7 @@ function setEventListeners(formElement, options) {
   const { inputSelector } = options;
   const inputElements = [...formElement.querySelectorAll(inputSelector)];
   const submitButton = formElement.querySelector(".modal__button");
+  toggleButtonState(inputElements, submitButton, options);
   inputElements.forEach((inputElement) => {
     inputElement.addEventListener("input", (evt) => {
       checkInputValidity(formElement, inputElement, options);
@@ -79,7 +80,3 @@ function enableValidation(options) {
     setEventListeners(formElement, options);
   });
 }
-//Close Picture Modal
-const closeOverlay = document.querySelector("#picture-modal");
-closeOverlay.addEventListener("click", () => closeModal(pictureModal));
-document.addEventListener("keydown", () => closeModal(pictureModal));
