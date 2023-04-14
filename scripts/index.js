@@ -1,4 +1,6 @@
-// Arrays
+import Card from "./card.js";
+import FormValidator from "./FormValidator.js";
+
 const initialCards = [
   {
     name: "Tokyo",
@@ -25,6 +27,12 @@ const initialCards = [
     link: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aXRhbHl8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60",
   },
 ];
+const cardData = {
+  name: "Tokyo",
+  link: "https://images.unsplash.com/photo-1678951310861-60299f9b0162?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+};
+const card = new Card(cardData, "#cards");
+card.getView();
 
 // Variables
 const editProfileModalContainer = document.querySelector("#edit-modal");
@@ -54,6 +62,20 @@ const modalPictureDescription = document.querySelector(
 const pictureModal = document.querySelector("#picture-modal");
 const pictureCloseButton = pictureModal.querySelector(".modal__close-button");
 const cardImage = document.querySelector(".card__image");
+
+const validationConfig = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
+
+const editFormValidator = new FormValidator(
+  validationConfig,
+  editProfileModalContainer
+);
 
 // Funtions
 pictureCloseButton.addEventListener("click", () => closeModal(pictureModal));
