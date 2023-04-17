@@ -1,6 +1,6 @@
 import Card from "./card.js";
 import FormValidator from "./FormValidator.js";
-import Utils from "./utils.js";
+import { pictureModal, modalPicture, openModal, closeModal } from "./utils.js";
 
 const initialCards = [
   {
@@ -56,13 +56,10 @@ const addCloseButton = addProfileModal.querySelector(".modal__close-button");
 const addForm = addProfileModal.querySelector("#add-form");
 const titleInput = document.querySelector("#title-input");
 const imageInput = document.querySelector("#image-input");
-const modalPicture = document.querySelector(".modal__picture");
 const modalPictureDescription = document.querySelector(
   ".modal__picture-description"
 );
-const pictureModal = document.querySelector("#picture-modal");
 const pictureCloseButton = pictureModal.querySelector(".modal__close-button");
-const cardImage = document.querySelector(".card__image");
 
 const validationConfig = {
   formSelector: ".modal__form",
@@ -78,33 +75,7 @@ editFormValidator.enableValidation();
 const addFormValidator = new FormValidator(validationConfig, addForm);
 addFormValidator.enableValidation();
 
-// Funtions
 pictureCloseButton.addEventListener("click", () => closeModal(pictureModal));
-
-function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-  document.removeEventListener("keydown", closeModalByEscape);
-  modal.removeEventListener("mousedown", closeModalOnRemoteClick);
-}
-
-function openModal(modal) {
-  modal.classList.add("modal_opened");
-  document.addEventListener("keydown", closeModalByEscape);
-  modal.addEventListener("mousedown", closeModalOnRemoteClick);
-}
-
-//Close Modal by Escape/Click
-function closeModalByEscape(evt) {
-  if (evt.key === "Escape") {
-    const openedModal = document.querySelector(".modal_opened");
-    closeModal(openedModal);
-  }
-}
-function closeModalOnRemoteClick(evt) {
-  if (evt.target === evt.currentTarget) {
-    closeModal(evt.target);
-  }
-}
 
 function getCardElement(data) {
   const cardTemplate = document.querySelector("#cards").content.cloneNode(true);

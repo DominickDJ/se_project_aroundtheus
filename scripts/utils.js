@@ -1,7 +1,8 @@
 export const pictureModal = document.querySelector("#picture-modal");
-export const imageInput = document.querySelector("#image-input");
 export const modalPicture = document.querySelector(".modal__picture");
-export const cardImage = cardElement.querySelector(".card__image");
+export const modalPictureDescription = document.querySelector(
+  ".modal__picture-description"
+);
 
 export function closeModal(modal) {
   modal.classList.remove("modal_opened");

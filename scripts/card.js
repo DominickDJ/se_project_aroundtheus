@@ -1,4 +1,9 @@
-import { pictureModal, imageInput } from "./utils.js";
+import {
+  modalPictureDescription,
+  pictureModal,
+  modalPicture,
+  openModal,
+} from "./utils.js";
 
 export default class Card {
   constructor({ name, link }, cardSelector) {
