@@ -1,3 +1,5 @@
+import { pictureModal, imageInput } from "./utils.js";
+
 export default class Card {
   constructor({ name, link }, cardSelector) {
     this._name = name;
@@ -16,6 +18,11 @@ export default class Card {
       .addEventListener("click", () => {
         this._handleDeleteButton();
       });
+    this._cardElement
+      .querySelector(".card__image")
+      .addEventListener("click", () => {
+        this.handleCardClick();
+      });
   }
 
   _handleLikeicon() {
@@ -27,6 +34,21 @@ export default class Card {
     this._cardElement.remove;
     this._cardElement = null;
   }
+
+  _handleCardClick() {
+    modalPicture.src = data.link;
+    modalPicture.alt = `Photo of ${data.name}`;
+    modalPictureDescription.textContent = data.name;
+    openModal(pictureModal);
+  }
+  generateCard() {
+    this._cardElement = this._getView();
+    this._setEventListeners();
+    this._cardElement.querySelector(".card_image").cardImage.src = this._link;
+    this._cardElement.querySelector("card_title").textContent = this._name;
+    return this._cardElement;
+  }
+
   getView() {
     this._cardElement = document
       .querySelector(this._cardSelector)

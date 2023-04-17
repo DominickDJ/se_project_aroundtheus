@@ -1,5 +1,6 @@
 import Card from "./card.js";
 import FormValidator from "./FormValidator.js";
+import Utils from "./utils.js";
 
 const initialCards = [
   {
@@ -71,11 +72,11 @@ const validationConfig = {
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
-
-const editFormValidator = new FormValidator(
-  validationConfig,
-  editProfileModalContainer
-);
+const editForm = document.querySelector("#edit-form");
+const editFormValidator = new FormValidator(validationConfig, editForm);
+editFormValidator.enableValidation();
+const addFormValidator = new FormValidator(validationConfig, addForm);
+addFormValidator.enableValidation();
 
 // Funtions
 pictureCloseButton.addEventListener("click", () => closeModal(pictureModal));
