@@ -1,6 +1,6 @@
-import Card from "./card.js";
+import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
-import { pictureModal, modalPicture, openModal, closeModal } from "./utils.js";
+import { openModal, closeModal } from "./utils.js";
 
 const initialCards = [
   {
@@ -28,18 +28,12 @@ const initialCards = [
     link: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aXRhbHl8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60",
   },
 ];
-const cardData = {
-  name: "Tokyo",
-  link: "https://images.unsplash.com/photo-1678951310861-60299f9b0162?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-};
-const card = new Card(cardData, "#cards");
-card.getView();
 
-// Variables
+// Varirables
+const pictureModal = document.querySelector("#picture-modal");
+const modalPicture = document.querySelector(".modal__picture");
 const editProfileModalContainer = document.querySelector("#edit-modal");
-const modalContainer =
-  editProfileModalContainer.querySelector(".modal__container");
-const editButton = document.querySelector(".profile__edit-button");
+const editProfileButton = document.querySelector(".profile__edit-button");
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const cardGallery = document.querySelector(".gallery__cards");
@@ -51,7 +45,7 @@ const editCloseButton = editProfileModalContainer.querySelector(
 );
 const addProfileModal = document.querySelector("#add-modal");
 const addSubmitButton = addProfileModal.querySelector(".modal__button");
-const addButton = document.querySelector(".profile__add-button");
+const addProfileButton = document.querySelector(".profile__add-button");
 const addCloseButton = addProfileModal.querySelector(".modal__close-button");
 const addForm = addProfileModal.querySelector("#add-form");
 const titleInput = document.querySelector("#title-input");
@@ -89,7 +83,7 @@ function getCardElement(data) {
   });
 
   // Picture card element
-  cardImage.addEventListener("click", (event) => {
+  cardImage.addEventListener("click", () => {
     modalPicture.src = data.link;
     modalPicture.alt = `Photo of ${data.name}`;
     modalPictureDescription.textContent = data.name;
@@ -97,7 +91,7 @@ function getCardElement(data) {
   });
 
   // Like card element
-  cardLikeButton.addEventListener("click", (event) => {
+  cardLikeButton.addEventListener("click", () => {
     cardLikeButton.classList.toggle("card__like_button-clicked");
   });
   cardImage.src = data.link;
@@ -110,7 +104,7 @@ function getCardElement(data) {
 editCloseButton.addEventListener("click", () =>
   closeModal(editProfileModalContainer)
 );
-editButton.addEventListener("click", function () {
+editProfileButton.addEventListener("click", function () {
   nameInput.value = profileTitle.textContent;
   descriptionInput.value = profileDescription.textContent;
   openModal(editProfileModalContainer);
@@ -124,7 +118,7 @@ editProfileModalContainer.addEventListener("submit", (event) => {
 
 // Add Modal
 addCloseButton.addEventListener("click", () => closeModal(addProfileModal));
-addButton.addEventListener("click", function () {
+addProfileButton.addEventListener("click", function () {
   openModal(addProfileModal);
 });
 addProfileModal.addEventListener("submit", (event) => {
@@ -137,10 +131,14 @@ addProfileModal.addEventListener("submit", (event) => {
   cardGallery.prepend(getCardElement(cardData));
   closeModal(addProfileModal);
   addForm.reset();
-  toggleButtonState([titleInput, imageInput], addSubmitButton, config);
 });
 
 // Array Data
+const renderCard = (data, cardGallery) => {
+  const card = new Card(data, "#cards");
+  cardGallery.prepend(card.getView());
+};
+
 initialCards.forEach((cardData) => {
-  cardGallery.append(getCardElement(cardData));
+  renderCard(cardData, cardGallery);
 });

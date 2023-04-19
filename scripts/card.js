@@ -1,8 +1,8 @@
 import {
+  openModal,
+  modalPicture,
   modalPictureDescription,
   pictureModal,
-  modalPicture,
-  openModal,
 } from "./utils.js";
 
 export default class Card {
@@ -26,39 +26,38 @@ export default class Card {
     this._cardElement
       .querySelector(".card__image")
       .addEventListener("click", () => {
-        this.handleCardClick();
+        this._handleCardClick();
       });
   }
 
-  _handleLikeicon() {
+  _handleLikeIcon() {
     this._cardElement
-      .querySelector(".card__like_button")
-      .classlist.toggle(".card_like_button-clicked");
+      .querySelector(".card__like-button")
+      .classList.toggle("card__like-button_clicked");
   }
   _handleDeleteButton() {
-    this._cardElement.remove;
+    this._cardElement.remove();
     this._cardElement = null;
   }
 
   _handleCardClick() {
-    modalPicture.src = data.link;
-    modalPicture.alt = `Photo of ${data.name}`;
-    modalPictureDescription.textContent = data.name;
+    modalPicture.src = this._link;
+    modalPicture.alt = `Photo of ${this._name}`;
+    modalPictureDescription.textContent = this._name;
     openModal(pictureModal);
   }
-  generateCard() {
-    this._cardElement = this._getView();
-    this._setEventListeners();
-    this._cardElement.querySelector(".card_image").cardImage.src = this._link;
-    this._cardElement.querySelector("card_title").textContent = this._name;
-    return this._cardElement;
-  }
-
-  getView() {
-    this._cardElement = document
+  _getTemplate() {
+    return document
       .querySelector(this._cardSelector)
       .content.querySelector(".card")
       .cloneNode(true);
+  }
+
+  getView() {
+    this._cardElement = this._getTemplate();
     this._setEventListeners();
+    this._cardElement.querySelector(".card__image").src = this._link;
+    this._cardElement.querySelector(".card__title").textContent = this._name;
+    return this._cardElement;
   }
 }
