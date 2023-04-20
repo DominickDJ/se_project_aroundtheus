@@ -1,9 +1,10 @@
+import { openModal } from "./utils.js";
+
 import {
-  openModal,
+  pictureModal,
   modalPicture,
   modalPictureDescription,
-  pictureModal,
-} from "./utils.js";
+} from "./index.js";
 
 export default class Card {
   constructor({ name, link }, cardSelector) {
@@ -57,6 +58,7 @@ export default class Card {
     this._cardElement = this._getTemplate();
     this._setEventListeners();
     this._cardElement.querySelector(".card__image").src = this._link;
+    this._cardElement.querySelector(".card__image").alt = this._name;
     this._cardElement.querySelector(".card__title").textContent = this._name;
     return this._cardElement;
   }

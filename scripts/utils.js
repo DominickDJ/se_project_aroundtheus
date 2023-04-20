@@ -21,8 +21,4 @@ export function closeModalOnRemoteClick(evt) {
     closeModal(evt.target);
   }
 }
-export const pictureModal = document.querySelector("#picture-modal");
-export const modalPicture = document.querySelector(".modal__picture");
-export const modalPictureDescription = document.querySelector(
-  ".modal__picture-description"
-);
+
