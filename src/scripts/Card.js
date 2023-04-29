@@ -1,16 +1,9 @@
-import { openModal } from "./utils.js";
-
-import {
-  pictureModal,
-  modalPicture,
-  modalPictureDescription,
-} from "./index.js";
-
 export default class Card {
-  constructor({ name, link }, cardSelector) {
-    this._name = name;
-    this._link = link;
+  constructor({ data, handleImageClick }, cardSelector) {
+    this._name = data.name;
+    this._link = data.link;
     this._cardSelector = cardSelector;
+    this._handleImageClick = handleImageClick;
   }
 
   _setEventListeners() {
@@ -27,7 +20,7 @@ export default class Card {
     this._cardElement
       .querySelector(".card__image")
       .addEventListener("click", () => {
-        this._handleCardClick();
+        this._handleImageClick({ link: this._link, text: this._text });
       });
   }
 
@@ -45,7 +38,7 @@ export default class Card {
     modalPicture.src = this._link;
     modalPicture.alt = `Photo of ${this._name}`;
     modalPictureDescription.textContent = this._name;
-    openModal(pictureModal);
+    open(pictureModal);
   }
   _getTemplate() {
     return document
