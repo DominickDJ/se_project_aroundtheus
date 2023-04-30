@@ -1,15 +1,17 @@
-// export default class Section {
-//   constructor({ items, renderer }, galleryCards) {
-//     this._renderer = renderer;
-//     this._element = document.querySelector(`.${items}`);
-//     this._galleryCards = document.querySelector(galleryCards);
+export default class Section {
+  constructor({ items, renderer }, galleryCards) {
+    this._renderer = renderer;
+    this._items = items;
+    this._galleryCards = document.querySelector(galleryCards);
+  }
+  renderItems() {
+    this._items.forEach((item) => {
+      this._renderer(item);
+    });
+  }
 
-//     renderItems(data){
-//         this._renderer
-//     }
-
-//     addItem(item){
-
-//     }
-//   }
-// }
+  addItem() {
+    const itemElement = this._renderer(item);
+    this._galleryCards.prepend(itemElement);
+  }
+}

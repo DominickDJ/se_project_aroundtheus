@@ -31,9 +31,6 @@ export const selectors = {
   previewPopup: "modal_preview",
 };
 
-
-
-
 // // Edit Modal
 // editCloseButton.addEventListener("click", () =>
 //   closeModal(editProfileModalContainer)
