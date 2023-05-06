@@ -26,7 +26,7 @@ export const initialCards = [
 ];
 
 export const selectors = {
-  cardSection: "gallery__cards",
-  cardTemplate: ".card-template",
-  previewPopup: "modal_preview",
+  cardSection: ".gallery__cards",
+  cardTemplate: "#card-template",
+  previewPopup: ".modal_preview",
 };

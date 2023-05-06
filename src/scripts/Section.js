@@ -11,7 +11,7 @@ export default class Section {
   }
 
   addItem() {
-    const itemElement = this._renderer(item);
+    const itemElement = this._renderer();
     this._galleryCards.prepend(itemElement);
   }
 }

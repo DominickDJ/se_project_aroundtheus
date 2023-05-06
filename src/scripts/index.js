@@ -37,7 +37,7 @@ const CardSection = new Section(
   },
   selectors.cardSection
 );
-CardSection.renderItems(initialCards);
+// CardSection.renderItems(initialCards);
 
 // User Info
 const user = new UserInfo(".profile__title", ".profile__description");
@@ -54,7 +54,7 @@ const editProfileModal = new PopupWithForm({
     user.setUserInfo({ name, job });
   },
 });
-// editProfileModal.setEventListeners();
+editProfileModal.setEventListeners();
 
 // Form Validator
 const validationConfig = {
