@@ -4,15 +4,24 @@ import PopupWithForm from "./PopupWithForm.js";
 import PopupWithImage from "./PopupWithImage.js";
 import Section from "./Section.js";
 import { initialCards, selectors } from "../utils/Constants.js";
+import UserInfo from "./UserInfo.js";
+import FormValidator from "./FormValidator.js";
+import Popup from "./Popup.js";
 
-const newCardPopup = new PopupWithForm({
-  popupSelector: "#add-modal",
-  handleFormSubmit: () => {},
+// Popup
+const newImagePopup = new Popup({
+  popupSelector: "#picture-modal",
 });
-newCardPopup.open();
-const CardPreview = new PopupWithImage(selectors.previewPopup);
+newImagePopup.open();
+
+// Popup with Image
+const CardPreview = new PopupWithImage(selectors);
+// CardPreview.setEventListeners();
+
+// Section / Card
 const CardSection = new Section(
   {
+    items: initialCards,
     renderer: (data) => {
       const cardElement = new Card(
         {
@@ -21,18 +30,33 @@ const CardSection = new Section(
             CardPreview.open(imageData);
           },
         },
-        selectors.cardTemplate,
-        handleClick
+        selectors.cardTemplate
       );
       CardSection.addItem(cardElement.getView());
     },
   },
   selectors.cardSection
 );
-
 CardSection.renderItems(initialCards);
-CardPreview.setEventListeners();
 
+// User Info
+const user = new UserInfo(".profile__title", ".profile__description");
+
+// Popup with form
+const newCardPopup = new PopupWithForm({
+  popupSelector: "#add-modal",
+  handleFormSubmit: () => {},
+});
+newCardPopup.open();
+const editProfileModal = new PopupWithForm({
+  popupSelector: "#edit-modal",
+  handleFormSubmit: ({ name, job }) => {
+    user.setUserInfo({ name, job });
+  },
+});
+// editProfileModal.setEventListeners();
+
+// Form Validator
 const validationConfig = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
@@ -41,7 +65,6 @@ const validationConfig = {
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
-
 const editForm = document.querySelector("#edit-form");
 const editFormValidator = new FormValidator(validationConfig, editForm);
 editFormValidator.enableValidation();
