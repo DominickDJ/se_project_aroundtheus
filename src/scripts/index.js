@@ -8,6 +8,8 @@ import UserInfo from "./UserInfo.js";
 import FormValidator from "./FormValidator.js";
 import Popup from "./Popup.js";
 
+const addProfileModal = document.querySelector("#add-modal");
+
 // Popup
 const newImagePopup = new Popup({
   popupSelector: "#picture-modal",
@@ -58,6 +60,15 @@ const editProfileModal = new PopupWithForm({
 });
 editProfileModal.setEventListeners();
 
+const openEditPopupButton = document.querySelector(".profile__edit-button");
+openEditPopupButton.addEventListener("click", () => {
+  user.getUserInfo();
+  editProfileModal.open();
+});
+const openAddPopupButton = document.querySelector(".profile__add-button");
+openAddPopupButton.addEventListener("click", () => {
+  newCardPopup.open();
+});
 // Form Validator
 const validationConfig = {
   formSelector: ".modal__form",
@@ -70,7 +81,6 @@ const validationConfig = {
 const editForm = document.querySelector("#edit-form");
 const editFormValidator = new FormValidator(validationConfig, editForm);
 editFormValidator.enableValidation();
-const addProfileModal = document.querySelector("#add-modal");
 const addForm = addProfileModal.querySelector("#add-form");
 const addFormValidator = new FormValidator(validationConfig, addForm);
 addFormValidator.enableValidation();
