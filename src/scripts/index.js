@@ -12,11 +12,13 @@ import Popup from "./Popup.js";
 const newImagePopup = new Popup({
   popupSelector: "#picture-modal",
 });
-newImagePopup.open();
+newImagePopup.setEventListeners();
 
 // Popup with Image
-const CardPreview = new PopupWithImage(selectors);
-// CardPreview.setEventListeners();
+const CardPreview = new PopupWithImage({
+  popupSelector: "#picture-modal",
+});
+CardPreview.setEventListeners();
 
 // Section / Card
 const CardSection = new Section(
@@ -37,7 +39,7 @@ const CardSection = new Section(
   },
   selectors.cardSection
 );
-// CardSection.renderItems(initialCards);
+CardSection.renderItems();
 
 // User Info
 const user = new UserInfo(".profile__title", ".profile__description");
@@ -47,7 +49,7 @@ const newCardPopup = new PopupWithForm({
   popupSelector: "#add-modal",
   handleFormSubmit: () => {},
 });
-newCardPopup.open();
+newCardPopup.setEventListeners();
 const editProfileModal = new PopupWithForm({
   popupSelector: "#edit-modal",
   handleFormSubmit: ({ name, job }) => {

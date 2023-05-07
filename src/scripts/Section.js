@@ -10,8 +10,7 @@ export default class Section {
     });
   }
 
-  addItem() {
-    const itemElement = this._renderer();
+  addItem(itemElement) {
     this._galleryCards.prepend(itemElement);
   }
 }
