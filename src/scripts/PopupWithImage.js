@@ -1,5 +1,5 @@
 import Popup from "./Popup";
-import "./index"
+import "../pages/index";
 export default class PopupWithImage extends Popup {
   constructor({ popupSelector }) {
     super({ popupSelector });
@@ -13,8 +13,5 @@ export default class PopupWithImage extends Popup {
     this._modalPicture.alt = `Photo of ${data.name}`;
     this._modalPictureDescription.textContent = data.name;
     super.open();
-  }
-  close() {
-    super.close();
   }
 }

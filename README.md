@@ -11,7 +11,8 @@
 - Open picture with smooth transition on modals designed
 - Complete user interactivity
 - Live Validation
-- Destructored syntax
+- Destructured syntax
+- Advanced OOP
 
 **Description**
 
