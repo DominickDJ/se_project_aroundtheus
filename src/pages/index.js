@@ -33,27 +33,27 @@ addFormValidator.enableValidation();
 const newImagePopup = new Popup({
   popupSelector: "#picture-modal",
 });
-newImagePopup.close();
+
 
 // Popup with Image
 const cardPreview = new PopupWithImage({
   popupSelector: "#picture-modal",
 });
-cardPreview.close();
+
 
 // Popup with form
 const newCardPopup = new PopupWithForm({
   popupSelector: "#add-modal",
-  handleFormSubmit: (cardTitle, cardLink) => {
-    cardSection.renderItems(cardTitle, cardLink);
+  handleFormSubmit: (inputValues) => {
+    cardSection.renderItems(inputValues);
     newCardPopup.close();
   },
 });
 newCardPopup.close();
 const editProfileModal = new PopupWithForm({
   popupSelector: "#edit-modal",
-  handleFormSubmit: ({ userName, userJob }) => {
-    user.setUserInfo({ userName, userJob });
+  handleFormSubmit: (inputValues) => {
+    user.setUserInfo(inputValues);
     editProfileModal.close();
   },
 });
