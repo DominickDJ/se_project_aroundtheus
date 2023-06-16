@@ -1,23 +1,25 @@
-import Card from "../scripts/components.js";
-import "../pages/index.css";
-import PopupWithForm from "../scripts/PopupWithForm.js";
-import PopupWithImage from "../scripts/PopupWithImage.js";
-import Section from "../scripts/Section.js";
+import "./index.css";
+import Card from "../components/Card.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import Section from "../components/Section.js";
 import {
   initialCards,
   selectors,
   validationConfig,
 } from "../utils/Constants.js";
-import UserInfo from "../scripts/UserInfo.js";
-import FormValidator from "../scripts/FormValidator.js";
-import Popup from "../scripts/Popup.js";
+import UserInfo from "../components/UserInfo.js";
+import FormValidator from "../components/FormValidator.js";
 
-// Pop Button
+// Popup Buttons
 const openEditPopupButton = document.querySelector(".profile__edit-button");
 openEditPopupButton.addEventListener("click", () => {
   const userData = user.getUserInfo();
+  console.log(userData);
   editFormValidator.resetValidation();
   editProfileModal.open();
+  console.log(editProfileModal._getInputValues());
+  editProfileModal._setInputValues(userData);
 });
 const openAddPopupButton = document.querySelector(".profile__add-button");
 openAddPopupButton.addEventListener("click", () => {
@@ -33,7 +35,7 @@ const addForm = addProfileModal.querySelector("#add-form");
 const addFormValidator = new FormValidator(validationConfig, addForm);
 addFormValidator.enableValidation();
 
-// Section / Card
+// Card
 const renderCard = (data) => {
   const cardElement = new Card(
     {
@@ -47,6 +49,15 @@ const renderCard = (data) => {
   const newCard = cardElement.getView();
   cardSection.addItem(newCard);
 };
+// Section
+const cardSection = new Section(
+  {
+    items: initialCards,
+    renderer: renderCard,
+  },
+  selectors.cardSection
+);
+cardSection.renderItems();
 
 // Popup with Image
 const cardPreview = new PopupWithImage({
@@ -58,10 +69,8 @@ const newCardPopup = new PopupWithForm({
   popupSelector: "#add-modal",
   handleFormSubmit: (inputValues) => {
     renderCard(inputValues);
-    newCardPopup.close();
   },
 });
-newCardPopup.close();
 const editProfileModal = new PopupWithForm({
   popupSelector: "#edit-modal",
   handleFormSubmit: (inputValues) => {
@@ -70,15 +79,6 @@ const editProfileModal = new PopupWithForm({
   },
 });
 editProfileModal.close();
-
-const cardSection = new Section(
-  {
-    items: initialCards,
-    renderer: renderCard,
-  },
-  selectors.cardSection
-);
-cardSection.renderItems();
 
 // User Info
 const user = new UserInfo(".profile__title", ".profile__description");

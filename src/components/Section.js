@@ -5,14 +5,10 @@ export default class Section {
     this._galleryCards = document.querySelector(galleryCards);
   }
 
-  renderItems(items) {
-    if (items) {
-      this._renderer(items);
-    } else {
-      this._items.forEach((items) => {
-        this._renderer(items);
-      });
-    }
+  renderItems() {
+    this._items.forEach((item) => {
+      this._renderer(item);
+    });
   }
 
   addItem(itemElement) {

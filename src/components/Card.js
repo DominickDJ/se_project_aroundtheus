@@ -1,5 +1,5 @@
 export default class Card {
-  constructor({ data, handleImageClick, handleCardClick }, cardSelector) {
+  constructor({ data, handleImageClick }, cardSelector) {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
@@ -34,7 +34,7 @@ export default class Card {
     this._cardElement = null;
   }
 
-  _handleCardClick() {
+  _handleImageClick() {
     modalPicture.src = this._link;
     modalPicture.alt = `Photo of ${this._name}`;
     modalPictureDescription.textContent = this._name;
