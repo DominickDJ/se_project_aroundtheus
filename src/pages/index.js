@@ -15,11 +15,9 @@ import FormValidator from "../components/FormValidator.js";
 const openEditPopupButton = document.querySelector(".profile__edit-button");
 openEditPopupButton.addEventListener("click", () => {
   const userData = user.getUserInfo();
-  console.log(userData);
   editFormValidator.resetValidation();
   editProfileModal.open();
-  console.log(editProfileModal._getInputValues());
-  editProfileModal._setInputValues(userData);
+  editProfileModal.setInputValues(userData);
 });
 const openAddPopupButton = document.querySelector(".profile__add-button");
 openAddPopupButton.addEventListener("click", () => {
@@ -69,6 +67,7 @@ const newCardPopup = new PopupWithForm({
   popupSelector: "#add-modal",
   handleFormSubmit: (inputValues) => {
     renderCard(inputValues);
+    newCardPopup.close();
   },
 });
 const editProfileModal = new PopupWithForm({
@@ -78,7 +77,6 @@ const editProfileModal = new PopupWithForm({
     editProfileModal.close();
   },
 });
-editProfileModal.close();
 
 // User Info
 const user = new UserInfo(".profile__title", ".profile__description");

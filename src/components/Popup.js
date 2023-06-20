@@ -18,14 +18,11 @@ export default class Popup {
     this._closeButton.removeEventListener("click", this._handleClickClose);
   }
   _handleClickClose = (evt) => {
-    const closeButton = this._popupElement.querySelector(
-      ".modal__close-button"
-    );
     if (
       evt.target.classList.contains("modal_opened") ||
-      evt.target === closeButton
+      evt.target.classList.contains("modal__close-button")
     ) {
-      this.close(evt.target);
+      this.close();
     }
   };
 
