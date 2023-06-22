@@ -18,7 +18,6 @@ export default class PopupWithForm extends Popup {
     this._inputList.forEach((input) => {
       input.value = data[input.name];
     });
-    this._inputDescription.value = data.userJob;
   }
 
   _handleSubmit() {

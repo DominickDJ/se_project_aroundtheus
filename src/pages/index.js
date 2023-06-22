@@ -21,6 +21,7 @@ openEditPopupButton.addEventListener("click", () => {
 });
 const openAddPopupButton = document.querySelector(".profile__add-button");
 openAddPopupButton.addEventListener("click", () => {
+  addFormValidator.resetValidation();
   newCardPopup.open();
 });
 
