@@ -24,7 +24,7 @@
   object-fit: cover;
   background-position: center;
 }
-.profile:hover {
+.profile__image:hover {
   opacity: 0.6;
   background: transparent url("../images/avatarButton.svg") center no-repeat;
 }

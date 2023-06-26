@@ -103,22 +103,22 @@ const avatarModal = new PopupWithForm({
 const user = new UserInfo(".profile__title", ".profile__description");
 
 // API
-const api = new Api({
-  baseUrl: "https://around.nomoreparties.co/v1/cohort-3-en",
-  headers: {
-    authorization: "36d4ccce-10c3-4fd1-8e69-65692c768133",
-    "Content-Type": "application/json",
-  },
-});
+// const api = new Api({
+//   baseUrl: "https://around.nomoreparties.co/v1/cohort-3-en",
+//   headers: {
+//     authorization: "36d4ccce-10c3-4fd1-8e69-65692c768133",
+//     "Content-Type": "application/json",
+//   },
+// });
 
-api
-  .getInitialCards()
-  .then((result) => {
-    // process the result
-  })
-  .catch((err) => {
-    console.error(err);
-  });
+// api
+//   .getInitialCards()
+//   .then((result) => {
+//     // process the result
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//   });
 
 // Token: 36d4ccce-10c3-4fd1-8e69-65692c768133
 // Group ID: cohort-3-en
