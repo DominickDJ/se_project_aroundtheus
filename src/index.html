@@ -49,7 +49,7 @@
       </footer>
     </div>
 
-    <!-- edit modal -->
+    <!-- Edit modal -->
     <section class="modal" id="edit-modal">
       <div class="modal__container">
         <h2 class="modal__title">Edit profile</h2>
@@ -90,7 +90,7 @@
       </div>
     </section>
 
-    <!-- add modal -->
+    <!-- Add modal -->
     <section class="modal" id="add-modal">
       <div class="modal__container">
         <h2 class="modal__title">New Place</h2>
@@ -129,6 +129,23 @@
       </div>
     </section>
 
+    <!--Confirm Modal (Are you sure?)-->
+    <section class="modal confirm__modal" id="confirm-modal">
+      <div class="modal__container">
+        <h2 class="modal__title">Are you sure?</h2>
+        <form class="modal__form" id="confirm-form">
+          <fieldset class="modal__fieldset">
+            <button class="modal__button" type="submit">Yes</button>
+          </fieldset>
+        </form>
+        <button
+          aria-label="close-button"
+          type="button"
+          class="modal__close-button"
+        ></button>
+      </div>
+    </section>
+
     <!-- Picture Modal -->
     <section class="modal modal_preview" id="picture-modal">
       <div class="modal__container">
@@ -142,6 +159,35 @@
       </div>
     </section>
 
+    <!--Avatar Modal-->
+    <section class="modal" id="avatar-modal">
+      <div class="modal__container">
+        <h2 class="modal__title">Change profile picture</h2>
+        <form class="modal__form" id="Avatar-form" novalidate>
+          <fieldset class="modal__fieldset">
+            <input
+            name="link"
+            id="avatar-input"
+            class="modal__input"
+            required
+            type="url"
+            placeholder="Picture link"
+          />
+            <span class="modal__error" id="image-input-error"></span>
+          </fieldset>
+          <fieldset class="modal__fieldset">
+            <button class="modal__button" type="submit">Save</button>
+          </fieldset>
+        </form>
+        <button
+          aria-label="close-button"
+          type="button"
+          class="modal__close-button"
+        ></button>
+      </div>
+    </section>
+
+<!--New card template-->
     <template id="card-template">
       <div class="card">
         <img class="card__image" alt="cards image" src="#" />

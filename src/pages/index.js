@@ -10,8 +10,10 @@ import {
 } from "../utils/Constants.js";
 import UserInfo from "../components/UserInfo.js";
 import FormValidator from "../components/FormValidator.js";
+import Api from "../components/Api.js";
 
-// Popup Buttons
+// POPUP BUTTONS
+//edit
 const openEditPopupButton = document.querySelector(".profile__edit-button");
 openEditPopupButton.addEventListener("click", () => {
   const userData = user.getUserInfo();
@@ -19,10 +21,16 @@ openEditPopupButton.addEventListener("click", () => {
   editProfileModal.open();
   editProfileModal.setInputValues(userData);
 });
+//add
 const openAddPopupButton = document.querySelector(".profile__add-button");
 openAddPopupButton.addEventListener("click", () => {
   addFormValidator.resetValidation();
   newCardPopup.open();
+});
+//confirm
+const openConfirmDeleteButton = document.querySelector("card__delete-button");
+openConfirmDeleteButton.addEventListener("click", () => {
+  confirmDeleteModal.open();
 });
 
 // Form Validator
@@ -78,6 +86,39 @@ const editProfileModal = new PopupWithForm({
     editProfileModal.close();
   },
 });
+const confirmDeleteModal = new PopupWithForm({
+  popupSelector: "#confirm-modal",
+  handleFormSubmit: () => {
+    confirmDeleteModal.close();
+  },
+});
+const avatarModal = new PopupWithForm({
+  popupSelector: "#avatar-modal",
+  handleFormSubmit: (inputValues) => {
+    avatarModal.close(inputValues);
+  },
+});
 
 // User Info
 const user = new UserInfo(".profile__title", ".profile__description");
+
+// API
+const api = new Api({
+  baseUrl: "https://around.nomoreparties.co/v1/cohort-3-en",
+  headers: {
+    authorization: "36d4ccce-10c3-4fd1-8e69-65692c768133",
+    "Content-Type": "application/json",
+  },
+});
+
+api
+  .getInitialCards()
+  .then((result) => {
+    // process the result
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+
+// Token: 36d4ccce-10c3-4fd1-8e69-65692c768133
+// Group ID: cohort-3-en

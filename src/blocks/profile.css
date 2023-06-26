@@ -24,6 +24,10 @@
   object-fit: cover;
   background-position: center;
 }
+.profile:hover {
+  opacity: 0.6;
+  background: transparent url("../images/avatarButton.svg") center no-repeat;
+}
 
 .profile__title {
   font-family: "Inter", Arial, sans-serif;
