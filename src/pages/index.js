@@ -28,10 +28,10 @@ openAddPopupButton.addEventListener("click", () => {
   newCardPopup.open();
 });
 //confirm
-const openConfirmDeleteButton = document.querySelector("card__delete-button");
-openConfirmDeleteButton.addEventListener("click", () => {
-  confirmDeleteModal.open();
-});
+// const openConfirmDeleteButton = document.querySelector("card__delete-button");
+// openConfirmDeleteButton.addEventListener("click", () => {
+//   confirmDeleteModal.open();
+// });
 
 // Form Validator
 const editForm = document.querySelector("#edit-form");
