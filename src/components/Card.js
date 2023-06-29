@@ -24,16 +24,16 @@ export default class Card {
     this.renderLikes();
   }
   renderLikes() {
-    this._likesAmount = this._cardElement.querySelector(".card__like-amount");
+    this._likesAmount = this._cardElement.querySelector(".card__like-number");
     this._likesAmount.textContent = this._likes.length;
     if (this.isLiked()) {
       this._cardElement
         .querySelector(".card__like-button")
-        .classList.add("card__like-button_active");
+        .classList.add("card__like-button_clicked");
     } else {
       this._cardElement
         .querySelector(".card__like-button")
-        .classList.remove("card__like-button_active");
+        .classList.remove("card__like-button_clicked");
     }
   }
 
@@ -46,7 +46,7 @@ export default class Card {
     this._cardElement
       .querySelector(".card__delete-button")
       .addEventListener("click", () => {
-        this._handleDeleteButton(this);
+        this._handleDeleteButton(this.getId());
       });
     this._cardElement
       .querySelector(".card__image")

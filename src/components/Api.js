@@ -1,6 +1,6 @@
 export default class Api {
-  constructor({ baseURL, headers }) {
-    this._baseURL = baseURL;
+  constructor({ baseUrl, headers }) {
+    this._baseURL = baseUrl;
     this._headers = headers;
   }
 
@@ -33,18 +33,17 @@ export default class Api {
     });
   }
 
-  setAvatar(data) {
+  setAvatar(avatar) {
     return fetch(`${this._baseURL}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        avatar: data.url,
+        avatar: avatar.url,
       }),
     }).then((res) => {
       return this._checkServerResponse(res);
     });
   }
-
 
   addCard(name, link) {
     return fetch(`${this._baseURL}/cards`, {
