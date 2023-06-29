@@ -1,9 +1,40 @@
 export default class Card {
-  constructor({ data, handleImageClick }, cardSelector) {
+  constructor(
+    { data, userId, handleImageClick, handleDeleteClick },
+    cardSelector
+  ) {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
+    this._handleDeleteButton = handleDeleteClick;
+    this._id = data._id;
+    this._userId = userId;
+  }
+
+  getId() {
+    return this._id;
+  }
+  isLiked() {
+    return this._likes.some((like) => like._id === this._userId);
+  }
+
+  setLikes(likes) {
+    this._likes = likes;
+    this.renderLikes();
+  }
+  renderLikes() {
+    this._likesAmount = this._cardElement.querySelector(".card__like-amount");
+    this._likesAmount.textContent = this._likes.length;
+    if (this.isLiked()) {
+      this._cardElement
+        .querySelector(".card__like-button")
+        .classList.add("card__like-button_active");
+    } else {
+      this._cardElement
+        .querySelector(".card__like-button")
+        .classList.remove("card__like-button_active");
+    }
   }
 
   _setEventListeners() {
@@ -15,7 +46,7 @@ export default class Card {
     this._cardElement
       .querySelector(".card__delete-button")
       .addEventListener("click", () => {
-        this._handleDeleteButton();
+        this._handleDeleteButton(this);
       });
     this._cardElement
       .querySelector(".card__image")
@@ -28,10 +59,6 @@ export default class Card {
     this._cardElement
       .querySelector(".card__like-button")
       .classList.toggle("card__like-button_clicked");
-  }
-  _handleDeleteButton() {
-    this._cardElement.remove();
-    this._cardElement = null;
   }
 
   _handleImageClick() {
@@ -54,5 +81,10 @@ export default class Card {
     this._cardElement.querySelector(".card__image").alt = this._name;
     this._cardElement.querySelector(".card__title").textContent = this._name;
     return this._cardElement;
+  }
+
+  remove() {
+    this._cardElement.remove();
+    this._cardElement = null;
   }
 }

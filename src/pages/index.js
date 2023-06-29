@@ -11,6 +11,7 @@ import {
 import UserInfo from "../components/UserInfo.js";
 import FormValidator from "../components/FormValidator.js";
 import Api from "../components/Api.js";
+import PopupWithConfirm from "../components/PopupWithConfirm";
 
 // POPUP BUTTONS
 //edit
@@ -27,11 +28,12 @@ openAddPopupButton.addEventListener("click", () => {
   addFormValidator.resetValidation();
   newCardPopup.open();
 });
-//confirm
-// const openConfirmDeleteButton = document.querySelector("card__delete-button");
-// openConfirmDeleteButton.addEventListener("click", () => {
-//   confirmDeleteModal.open();
-// });
+
+// avatar
+const openAvatarPopupButton = document.querySelector(".profile__image");
+openAvatarPopupButton.addEventListener("click", () => {
+  avatarModal.open();
+});
 
 // Form Validator
 const editForm = document.querySelector("#edit-form");
@@ -49,6 +51,9 @@ const renderCard = (data) => {
       data,
       handleImageClick: (imageData) => {
         cardPreview.open(imageData);
+      },
+      handleDeleteClick: (card) => {
+        confirmDeleteModal.open(card);
       },
     },
     selectors.cardTemplate
@@ -86,10 +91,21 @@ const editProfileModal = new PopupWithForm({
     editProfileModal.close();
   },
 });
-const confirmDeleteModal = new PopupWithForm({
+
+//Popup with Confirm
+const confirmDeleteModal = new PopupWithConfirm({
   popupSelector: "#confirm-modal",
   handleFormSubmit: () => {
-    confirmDeleteModal.close();
+    if (id === ownerId) {
+      api
+        .delete(id)
+        .then(() => {
+          confirmDeleteModal.close();
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
   },
 });
 const avatarModal = new PopupWithForm({
@@ -103,22 +119,22 @@ const avatarModal = new PopupWithForm({
 const user = new UserInfo(".profile__title", ".profile__description");
 
 // API
-// const api = new Api({
-//   baseUrl: "https://around.nomoreparties.co/v1/cohort-3-en",
-//   headers: {
-//     authorization: "36d4ccce-10c3-4fd1-8e69-65692c768133",
-//     "Content-Type": "application/json",
-//   },
-// });
+const api = new Api({
+  baseUrl: "https://around.nomoreparties.co/v1/cohort-3-en",
+  headers: {
+    authorization: "36d4ccce-10c3-4fd1-8e69-65692c768133",
+    "Content-Type": "application/json",
+  },
+});
 
-// api
-//   .getInitialCards()
-//   .then((result) => {
-//     // process the result
-//   })
-//   .catch((err) => {
-//     console.error(err);
-//   });
+api
+  .getInitialCards()
+  .then((result) => {
+    // process the result
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
 // Token: 36d4ccce-10c3-4fd1-8e69-65692c768133
 // Group ID: cohort-3-en

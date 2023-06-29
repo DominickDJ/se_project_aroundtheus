@@ -130,12 +130,14 @@
     </section>
 
     <!--Confirm Modal (Are you sure?)-->
-    <section class="modal confirm__modal" id="confirm-modal">
-      <div class="modal__container">
+    <section class="modal" id="confirm-modal">
+      <div class="modal__container confirm__modal">
         <h2 class="modal__title">Are you sure?</h2>
         <form class="modal__form" id="confirm-form">
           <fieldset class="modal__fieldset">
-            <button class="modal__button" type="submit">Yes</button>
+            <button class="modal__button" type="submit" id="confirm-button">
+              Yes
+            </button>
           </fieldset>
         </form>
         <button
@@ -166,13 +168,13 @@
         <form class="modal__form" id="Avatar-form" novalidate>
           <fieldset class="modal__fieldset">
             <input
-            name="link"
-            id="avatar-input"
-            class="modal__input"
-            required
-            type="url"
-            placeholder="Picture link"
-          />
+              name="link"
+              id="avatar-input"
+              class="modal__input"
+              required
+              type="url"
+              placeholder="Picture link"
+            />
             <span class="modal__error" id="image-input-error"></span>
           </fieldset>
           <fieldset class="modal__fieldset">
@@ -187,14 +189,17 @@
       </div>
     </section>
 
-<!--New card template-->
+    <!--New card template-->
     <template id="card-template">
       <div class="card">
         <img class="card__image" alt="cards image" src="#" />
         <button class="card__delete-button" type="button"></button>
         <div class="card__description">
           <h2 class="card__title"></h2>
-          <button class="card__like-button" type="button"></button>
+          <div class="card__like-container">
+            <button class="card__like-button" type="button"></button>
+            <span class="card__like-number">0</span>
+          </div>
         </div>
       </div>
     </template>
