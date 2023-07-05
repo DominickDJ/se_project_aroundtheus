@@ -37,6 +37,7 @@ openAddPopupButton.addEventListener("click", () => {
 // avatar
 const openAvatarPopupButton = document.querySelector(".profile__image");
 openAvatarPopupButton.addEventListener("click", () => {
+  avatarFormValidator.resetValidation();
   avatarModal.open();
 });
 
@@ -48,7 +49,11 @@ const addProfileModal = document.querySelector("#add-modal");
 const addForm = addProfileModal.querySelector("#add-form");
 const addFormValidator = new FormValidator(validationConfig, addForm);
 addFormValidator.enableValidation();
+const avatarForm = document.querySelector("#avatar-form");
+const avatarFormValidator = new FormValidator(validationConfig, avatarForm);
+avatarFormValidator.enableValidation();
 
+//Cards
 let cardSection;
 api.getInitialCards().then((cards) => {
   cardSection = new Section(
@@ -61,7 +66,6 @@ api.getInitialCards().then((cards) => {
   cardSection.renderItems();
 });
 
-// Card
 const renderCard = (data) => {
   const cardElement = new Card(
     {
@@ -119,8 +123,8 @@ const confirmDeleteModal = new PopupWithConfirm({
 // Avatar Popup
 const avatarModal = new PopupWithForm({
   popupSelector: "#avatar-modal",
-  handleFormSubmit: (inputValues) => {
-    avatarModal.close(inputValues);
+  handleFormSubmit: () => {
+    avatarModal.close();
   },
 });
 
