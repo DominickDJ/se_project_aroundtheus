@@ -18,6 +18,7 @@ export default class Api {
     }).then((res) => {
       return this._checkServerResponse(res);
     });
+   
   }
 
   changeUserInfo(name, about) {
@@ -58,8 +59,8 @@ export default class Api {
     });
   }
 
-  deleteCard(cardId) {
-    return fetch(`${this._baseUrl}/cards/${cardId}`, {
+  deleteCard(getId) {
+    return fetch(`${this._baseUrl}/cards/${getId}`, {
       method: "DELETE",
       headers: this._headers,
     }).then((res) => {
@@ -67,8 +68,8 @@ export default class Api {
     });
   }
 
-  changeLikeCard(cardId, isLiked) {
-    return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+  changeLikeCard(getId, isLiked) {
+    return fetch(`${this._baseUrl}/cards/likes/${getId}`, {
       method: isLiked ? "DELETE" : "PUT",
       headers: this._headers,
     }).then((res) => {

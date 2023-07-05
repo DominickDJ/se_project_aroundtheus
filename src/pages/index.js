@@ -55,16 +55,21 @@ avatarFormValidator.enableValidation();
 
 //Cards
 let cardSection;
-api.getInitialCards().then((cards) => {
-  cardSection = new Section(
-    {
-      items: cards,
-      renderer: renderCard,
-    },
-    selectors.cardSection
-  );
-  cardSection.renderItems();
-});
+api
+  .getInitialCards()
+  .then((cards) => {
+    cardSection = new Section(
+      {
+        items: cards,
+        renderer: renderCard,
+      },
+      selectors.cardSection
+    );
+    cardSection.renderItems();
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
 const renderCard = (data) => {
   const cardElement = new Card(
@@ -129,4 +134,8 @@ const avatarModal = new PopupWithForm({
 });
 
 // User Info
-const user = new UserInfo(".profile__title", ".profile__description");
+const user = new UserInfo(
+  ".profile__title",
+  ".profile__description",
+  ".profile__image"
+);

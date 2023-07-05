@@ -1,6 +1,6 @@
 export default class Card {
   constructor(
-    { data, userId, handleImageClick, handleDeleteClick },
+    { data, userId, handleImageClick, deleteCard, handleDeleteClick },
     cardSelector
   ) {
     this._name = data.name;
@@ -10,6 +10,9 @@ export default class Card {
     this._handleDeleteButton = handleDeleteClick;
     this._id = data._id;
     this._userId = userId;
+    this._deleteCard = deleteCard;
+    this._likes = data.likes;
+    this._owner = data.owner;
   }
 
   getId() {
@@ -18,12 +21,11 @@ export default class Card {
   isLiked() {
     return this._likes.some((like) => like._id === this._userId);
   }
-
   setLikes(likes) {
     this._likes = likes;
     this.renderLikes();
   }
-  renderLikes() {
+  _renderLikes() {
     this._likesAmount = this._cardElement.querySelector(".card__like-number");
     this._likesAmount.textContent = this._likes.length;
     if (this.isLiked()) {
@@ -67,6 +69,14 @@ export default class Card {
     modalPictureDescription.textContent = this._name;
     open(pictureModal);
   }
+  _hideDeleteIcon() {
+    this._deleteButton = this._cardElement.querySelector(
+      ".card__delete-button"
+    );
+    if (this._userId !== this._owner._id) {
+      this._deleteButton.classList.add("card__delete-button-hidden");
+    }
+  }
   _getTemplate() {
     return document
       .querySelector(this._cardSelector)
@@ -80,6 +90,8 @@ export default class Card {
     this._cardElement.querySelector(".card__image").src = this._link;
     this._cardElement.querySelector(".card__image").alt = this._name;
     this._cardElement.querySelector(".card__title").textContent = this._name;
+    this._hideDeleteIcon();
+    this._renderLikes();
     return this._cardElement;
   }
 

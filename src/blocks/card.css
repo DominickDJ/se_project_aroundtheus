@@ -68,20 +68,6 @@
   color: #000000;
 }
 
-.card__number {
-  position: relative;
-  width: 9px;
-  height: 13px;
-  bottom: -15px;
-  right: 15px;
-  font-family: "Inter", Arial, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 16px;
-  text-align: center;
-  color: #000000;
-}
 .card__delete-button {
   background: transparent url(../images/deleteButton.svg) center no-repeat;
   width: 18px;
@@ -92,6 +78,10 @@
   top: 18px;
   right: 15px;
 }
+.card__delete-button-hidden {
+  display: none;
+}
+
 .card__delete-button:hover {
   opacity: 0.5;
 }
