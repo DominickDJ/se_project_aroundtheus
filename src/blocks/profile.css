@@ -37,8 +37,12 @@
   width: 26px;
   align-self: center;
   border: none;
-  z-index: 1;
+  top: 50px;
+  left: 48px;
+  opacity: 0.6;
+  cursor: pointer;
 }
+
 .profile__avatar-container {
   position: relative;
 }
