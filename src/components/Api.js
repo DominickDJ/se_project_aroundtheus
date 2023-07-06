@@ -68,7 +68,7 @@ export default class Api {
     });
   }
 
-  changeLikeCard(getId, isLiked) {
+  changeLikeNumber(getId, isLiked) {
     return fetch(`${this._baseUrl}/cards/likes/${getId}`, {
       method: isLiked ? "DELETE" : "PUT",
       headers: this._headers,

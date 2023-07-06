@@ -69,6 +69,7 @@ export default class Card {
     modalPictureDescription.textContent = this._name;
     open(pictureModal);
   }
+  
   _hideDeleteIcon() {
     this._deleteButton = this._cardElement.querySelector(
       ".card__delete-button"

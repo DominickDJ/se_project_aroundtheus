@@ -121,15 +121,21 @@ const confirmDeleteModal = new PopupWithConfirm({
       .catch((error) => {
         console.error(error);
       });
-    // }
   },
 });
 
 // Avatar Popup
 const avatarModal = new PopupWithForm({
   popupSelector: "#avatar-modal",
-  handleFormSubmit: () => {
-    avatarModal.close();
+  handleFormSubmit: (id) => {
+    api
+      .setAvatar(id)
+      .then(() => {
+        avatarModal.close();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   },
 });
 
