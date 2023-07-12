@@ -108,6 +108,9 @@ const cardPreview = new PopupWithImage({
 const newCardPopup = new PopupWithForm({
   popupSelector: "#add-modal",
   handleFormSubmit: (inputValues) => {
+    api.addCard(inputValues.name, inputValues.link).then((response) => {
+      console.log(response);
+    });
     renderCard(inputValues);
     newCardPopup.close();
   },
