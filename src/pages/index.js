@@ -35,7 +35,7 @@ openAddPopupButton.addEventListener("click", () => {
 });
 
 // avatar
-const openAvatarPopupButton = document.querySelector(".profile__image");
+const openAvatarPopupButton = document.querySelector(".profile__image-edit");
 openAvatarPopupButton.addEventListener("click", () => {
   avatarFormValidator.resetValidation();
   avatarModal.open();
@@ -53,6 +53,10 @@ const avatarForm = document.querySelector("#avatar-form");
 const avatarFormValidator = new FormValidator(validationConfig, avatarForm);
 avatarFormValidator.enableValidation();
 
+let userId;
+api.getUserInfo().then((userObject) => {
+  userId = userObject._id;
+});
 //Cards
 let cardSection;
 api
@@ -75,11 +79,18 @@ const renderCard = (data) => {
   const cardElement = new Card(
     {
       data,
+      userId,
       handleImageClick: (imageData) => {
         cardPreview.open(imageData);
       },
       handleDeleteClick: (id) => {
         confirmDeleteModal.open(id);
+      },
+      handleLikeCard: (id) => {
+        const isLiked = cardElement.isLiked();
+        api.changeLikeNumber(id, isLiked).then((res) => {
+          cardElement.setLikes(res.likes);
+        });
       },
     },
     selectors.cardTemplate
@@ -130,7 +141,7 @@ const avatarModal = new PopupWithForm({
   handleFormSubmit: (id) => {
     api
       .setAvatar(id)
-      .then(() => {
+      .then((res) => {
         avatarModal.close();
       })
       .catch((error) => {

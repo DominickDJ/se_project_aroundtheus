@@ -41,6 +41,7 @@
   height: 18px;
   border: none;
   cursor: pointer;
+  transition: all 0.3s;
 }
 .card__like-button:hover {
   opacity: 0.5;
@@ -77,6 +78,7 @@
   position: absolute;
   top: 18px;
   right: 15px;
+  transition: all 0.3s;
 }
 .card__delete-button-hidden {
   display: none;

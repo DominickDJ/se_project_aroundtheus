@@ -1,6 +1,13 @@
 export default class Card {
   constructor(
-    { data, userId, handleImageClick, deleteCard, handleDeleteButton },
+    {
+      data,
+      userId,
+      handleImageClick,
+      deleteCard,
+      handleDeleteButton,
+      handleLikeCard,
+    },
     cardSelector
   ) {
     this._name = data.name;
@@ -8,6 +15,7 @@ export default class Card {
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
     this._handleDeleteButton = handleDeleteButton;
+    this._handleLikeCard = handleLikeCard;
     this._id = data._id;
     this._userId = userId;
     this._deleteCard = deleteCard;
@@ -18,12 +26,13 @@ export default class Card {
   getId() {
     return this._id;
   }
+
   isLiked() {
     return this._likes.some((like) => like._id === this._userId);
   }
   setLikes(likes) {
     this._likes = likes;
-    this.renderLikes();
+    this._renderLikes();
   }
   _renderLikes() {
     this._likesAmount = this._cardElement.querySelector(".card__like-number");
@@ -43,7 +52,7 @@ export default class Card {
     this._cardElement
       .querySelector(".card__like-button")
       .addEventListener("click", () => {
-        this._handleLikeIcon();
+        this._handleLikeCard(this._id);
       });
     this._cardElement
       .querySelector(".card__delete-button")
@@ -57,19 +66,13 @@ export default class Card {
       });
   }
 
-  _handleLikeIcon() {
-    this._cardElement
-      .querySelector(".card__like-button")
-      .classList.toggle("card__like-button_clicked");
-  }
-
   _handleImageClick() {
     modalPicture.src = this._link;
     modalPicture.alt = `Photo of ${this._name}`;
     modalPictureDescription.textContent = this._name;
     open(pictureModal);
   }
-  
+
   _hideDeleteIcon() {
     this._deleteButton = this._cardElement.querySelector(
       ".card__delete-button"

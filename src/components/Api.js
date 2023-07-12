@@ -18,7 +18,6 @@ export default class Api {
     }).then((res) => {
       return this._checkServerResponse(res);
     });
-   
   }
 
   changeUserInfo(name, about) {
@@ -39,7 +38,7 @@ export default class Api {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        avatar: avatar.url,
+        avatar: avatar.link,
       }),
     }).then((res) => {
       return this._checkServerResponse(res);
