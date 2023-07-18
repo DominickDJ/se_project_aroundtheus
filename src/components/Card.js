@@ -5,7 +5,7 @@ export default class Card {
       userId,
       handleImageClick,
       deleteCard,
-      handleDeleteButton,
+      handleDeleteClick,
       handleLikeCard,
     },
     cardSelector
@@ -14,7 +14,7 @@ export default class Card {
     this._link = data.link;
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
-    this._handleDeleteButton = handleDeleteButton;
+    this._handleDeleteClick = handleDeleteClick;
     this._handleLikeCard = handleLikeCard;
     this._id = data._id;
     this._userId = userId;
@@ -57,7 +57,7 @@ export default class Card {
     this._cardElement
       .querySelector(".card__delete-button")
       .addEventListener("click", () => {
-        this._handleDeleteButton(this.getId());
+        this._handleDeleteClick(this.getId());
       });
     this._cardElement
       .querySelector(".card__image")
@@ -77,6 +77,7 @@ export default class Card {
     this._deleteButton = this._cardElement.querySelector(
       ".card__delete-button"
     );
+
     if (this._userId !== this._owner._id) {
       this._deleteButton.classList.add("card__delete-button-hidden");
     }

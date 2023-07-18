@@ -95,6 +95,7 @@ const renderCard = (data) => {
     },
     selectors.cardTemplate
   );
+
   const newCard = cardElement.getView();
   cardSection.addItem(newCard);
 };
@@ -109,9 +110,8 @@ const newCardPopup = new PopupWithForm({
   popupSelector: "#add-modal",
   handleFormSubmit: (inputValues) => {
     api.addCard(inputValues.name, inputValues.link).then((response) => {
-      console.log(response);
+      renderCard(response);
     });
-    renderCard(inputValues);
     newCardPopup.close();
   },
 });
