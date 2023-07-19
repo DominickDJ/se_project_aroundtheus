@@ -94,6 +94,7 @@ const renderCard = (data) => {
       },
     },
     selectors.cardTemplate
+    
   );
 
   const newCard = cardElement.getView();
