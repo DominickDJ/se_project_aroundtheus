@@ -6,7 +6,7 @@
 
 **Recent updates**
 
-- Edit modal, Add modal, Confirm Modal, Avatar Modal and Like-Button functionality
+- Edit modal, Add modal, and Like-Button functionality
 - Delete button active
 - Open picture with smooth transition on modals designed
 - Complete user interactivity
