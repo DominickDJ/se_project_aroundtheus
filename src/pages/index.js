@@ -53,10 +53,21 @@ const avatarForm = document.querySelector("#avatar-form");
 const avatarFormValidator = new FormValidator(validationConfig, avatarForm);
 avatarFormValidator.enableValidation();
 
+// User Info
+const user = new UserInfo(
+  ".profile__title",
+  ".profile__description",
+  ".profile__image"
+);
+
 let userId;
-api.getUserInfo().then((userObject) => {
-  userId = userObject._id;
+api.getUserInfo().then((data) => {
+  const { name, about, avatar } = data;
+  user.setUserInfo({ name, about });
+  user.setAvatar(avatar);
+  userId = data._id;
 });
+
 //Cards
 let cardSection;
 api
@@ -94,7 +105,6 @@ const renderCard = (data) => {
       },
     },
     selectors.cardTemplate
-    
   );
 
   const newCard = cardElement.getView();
@@ -146,6 +156,7 @@ const avatarModal = new PopupWithForm({
     api
       .setAvatar(id)
       .then((res) => {
+        user.setAvatar(res.avatar);
         avatarModal.close();
       })
       .catch((error) => {
@@ -153,10 +164,3 @@ const avatarModal = new PopupWithForm({
       });
   },
 });
-
-// User Info
-const user = new UserInfo(
-  ".profile__title",
-  ".profile__description",
-  ".profile__image"
-);
