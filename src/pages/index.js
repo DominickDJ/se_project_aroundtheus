@@ -94,8 +94,14 @@ const renderCard = (data) => {
       handleImageClick: (imageData) => {
         cardPreview.open(imageData);
       },
-      handleDeleteClick: (id) => {
-        confirmDeleteModal.open(id);
+      handleDeleteClick: () => {
+        confirmDeleteModal.open();
+        confirmDeleteModal.setSubmitAction(() => {
+          api.deleteCard(data._id).then((res) => {
+            cardElement.remove(res);
+            confirmDeleteModal.close();
+          });
+        });
       },
       handleLikeCard: (id) => {
         const isLiked = cardElement.isLiked();

@@ -7,9 +7,11 @@ export default class Card {
       deleteCard,
       handleDeleteClick,
       handleLikeCard,
+      handleConfirm,
     },
     cardSelector
   ) {
+    this.handleConfirm = handleConfirm;
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
@@ -65,6 +67,7 @@ export default class Card {
         this._handleImageClick({ link: this._link, text: this._text });
       });
   }
+
 
   _handleImageClick() {
     modalPicture.src = this._link;
