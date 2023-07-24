@@ -62,8 +62,8 @@ const user = new UserInfo(
 
 let userId;
 api.getUserInfo().then((data) => {
-  const { userJob, userName, avatar } = data;
-  user.setUserInfo({ userJob, userName });
+  const { name, about, avatar } = data;
+  user.setUserInfo({ name, about });
   user.setAvatar(avatar);
   userId = data._id;
 });
@@ -129,8 +129,12 @@ const newCardPopup = new PopupWithForm({
 const editProfileModal = new PopupWithForm({
   popupSelector: "#edit-modal",
   handleFormSubmit: (inputValues) => {
-    console.log(inputValues);
-    user.setUserInfo(inputValues);
+    debugger;
+    api
+      .changeUserInfo(inputValues.userName, inputValues.userJob)
+      .then((data) => {
+        user.setUserInfo(data);
+      });
     editProfileModal.close();
   },
 });
