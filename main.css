@@ -447,7 +447,7 @@ template {
 }
 
 .profile__image-edit {
-  background: rgba(0, 0, 0, 0.6) url(fb1db6f12d3a8d9547b6.svg) center
+  background: rgba(0, 0, 0, 0.6) url(f5e1d4dc6d3bef0086a5.svg) center
     no-repeat;
   background-size: 26px;
   position: absolute;
@@ -498,7 +498,7 @@ template {
   height: 24px;
   width: 24px;
   background-size: auto auto;
-  background: transparent url(8667ac4a523e8fc42e59.svg) center no-repeat;
+  background: transparent url(6c7bf05444b9793fdf6e.svg) center no-repeat;
   border: white 1px solid;
   grid-area: button;
   cursor: pointer;
@@ -508,7 +508,7 @@ template {
   height: 50px;
   width: 150px;
   margin-left: auto;
-  background: transparent url(d86bb2edc2f6eadb96b7.svg) center no-repeat;
+  background: transparent url(bed8c136e13907f5eefb.svg) center no-repeat;
   border: white 2px solid;
   cursor: pointer;
   border-radius: 2px;
@@ -611,7 +611,7 @@ template {
   align-items: center;
 }
 .card__like-button {
-  background: transparent url(490e8e45f6fd07daa7ff.svg) center no-repeat;
+  background: transparent url(50fc1486490dde97ccc1.svg) center no-repeat;
   width: 21px;
   height: 18px;
   border: none;
@@ -622,7 +622,7 @@ template {
   opacity: 0.5;
 }
 .card__like-button_clicked {
-  background: transparent url(226461bd64622361ffb2.svg) center
+  background: transparent url(f8482d28867cec189b08.svg) center
     no-repeat;
   width: 21px;
   height: 18px;
@@ -645,7 +645,7 @@ template {
 }
 
 .card__delete-button {
-  background: transparent url(8cb59aa98088a1653f62.svg) center no-repeat;
+  background: transparent url(ba43124316072f7a8629.svg) center no-repeat;
   width: 18px;
   height: 19px;
   border: none;
@@ -837,7 +837,7 @@ template {
   top: -45px;
   right: -45px;
   cursor: pointer;
-  background-image: url(81d0f6a6ee1da3d7d7d2.svg);
+  background-image: url(6b2ce9ca2dd5544f9e7d.svg);
   background-color: transparent;
   background-repeat: no-repeat;
   background-position: center;
