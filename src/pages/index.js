@@ -135,9 +135,11 @@ const newCardPopup = new PopupWithForm({
     api
       .addCard(inputValues.name, inputValues.link)
       .then((response) => {
-        newCardPopup.renderLoading(false);
         newCardPopup.close();
         renderCard(response);
+      })
+      .finally(() => {
+        newCardPopup.renderLoading(false);
       })
       .catch((error) => {
         console.error(error);
@@ -151,9 +153,11 @@ const editProfileModal = new PopupWithForm({
     api
       .changeUserInfo(inputValues.userName, inputValues.userJob)
       .then((data) => {
-        editProfileModal.renderLoading(false);
         editProfileModal.close();
         user.setUserInfo(data);
+      })
+      .finally(() => {
+        editProfileModal.renderLoading(false);
       })
       .catch((error) => {
         console.error(error);
@@ -167,9 +171,11 @@ const avatarModal = new PopupWithForm({
     api
       .setAvatar(id)
       .then((res) => {
-        avatarModal.renderLoading(false);
         user.setAvatar(res.avatar);
         avatarModal.close();
+      })
+      .finally(() => {
+        avatarModal.renderLoading(false);
       })
       .catch((error) => {
         console.error(error);
