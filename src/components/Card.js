@@ -64,10 +64,9 @@ export default class Card {
     this._cardElement
       .querySelector(".card__image")
       .addEventListener("click", () => {
-        this._handleImageClick({ link: this._link, text: this._text });
+        this._handleImageClick({ link: this._link, name: this._name });
       });
   }
-
 
   _handleImageClick() {
     modalPicture.src = this._link;
